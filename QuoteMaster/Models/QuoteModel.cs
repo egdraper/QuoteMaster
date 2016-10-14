@@ -5,14 +5,6 @@ using System.Web.Mvc;
 
 namespace QuoteMaster.Models
 {
-    public enum ReferenceType
-    {
-        Book,
-        Artical,
-        WebPost,
-        PersonalQuote
-    }
-
     public class QuoteModel
     {
         public int Id { get; set; }
@@ -27,7 +19,7 @@ namespace QuoteMaster.Models
         public string PublicationsName { get; set; }
 
         [Display(Name = "Reference Type")]
-        public ReferenceType? Type { get; set; }
+        public string Type { get; set; }
  
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]

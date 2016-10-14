@@ -33,7 +33,7 @@ namespace QuoteMaster.Controllers
                         Id = tq.Id,
                         PublishedDate = tq.PublishedDate,
                         Quote = tq.Quote,
-                        Type = (QuoteMaster.Models.ReferenceType)tq.Type,
+                        Type = tq.Type.ToString(),
                         Url = tq.Url,
                     });
                 }
@@ -58,7 +58,7 @@ namespace QuoteMaster.Controllers
                     Id = tq.Id,
                     PublishedDate = tq.PublishedDate,
                     Quote = tq.Quote,
-                    Type = (QuoteMaster.Models.ReferenceType)tq.Type,
+                    Type = tq.Type.ToString(),
                     Url = tq.Url,
                 };
             }
@@ -121,6 +121,7 @@ namespace QuoteMaster.Controllers
         public ActionResult Edit(int id)
         {
             QuoteModel quote;
+            
             using (QuoteDB db = new QuoteDB(connectionString))
             {
                 TheQuote tq = db.GetSingleQuote(id);
@@ -133,6 +134,10 @@ namespace QuoteMaster.Controllers
                     PublishedDate = tq.PublishedDate,
                     Quote = tq.Quote,
                     Url = tq.Url,
+                    Published = tq.Published,
+                    Type = tq.Type.ToString(),
+                    ReferenceList = getQuoteQulities()
+                    
                 };
             }
 

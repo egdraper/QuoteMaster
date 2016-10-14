@@ -8,3 +8,13 @@ C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteTest\bin
 C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.csprojResolveAssemblyReference.cache
 C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.dll
 C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.pdb
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\MyDB.mdf
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\QuoteTest.dll.config
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\QuoteTest.dll
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\QuoteTest.pdb
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\QuoteRepository.dll
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\bin\Debug\QuoteRepository.pdb
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.csprojResolveAssemblyReference.cache
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.dll
+C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.pdb
