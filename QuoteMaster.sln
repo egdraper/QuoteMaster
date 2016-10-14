@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteMaster", "QuoteMaster\QuoteMaster.csproj", "{55BF8544-AEC9-4EAD-9079-79E860955C33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteRepository", "QuoteRepository\QuoteRepository.csproj", "{F7D6B909-7EA6-4FC4-A714-C6293398033D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteTest", "QuoteTest\QuoteTest.csproj", "{036AB19E-C32E-4636-9C1C-567957AB9C86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55BF8544-AEC9-4EAD-9079-79E860955C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BF8544-AEC9-4EAD-9079-79E860955C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BF8544-AEC9-4EAD-9079-79E860955C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BF8544-AEC9-4EAD-9079-79E860955C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D6B909-7EA6-4FC4-A714-C6293398033D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D6B909-7EA6-4FC4-A714-C6293398033D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D6B909-7EA6-4FC4-A714-C6293398033D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D6B909-7EA6-4FC4-A714-C6293398033D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{036AB19E-C32E-4636-9C1C-567957AB9C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036AB19E-C32E-4636-9C1C-567957AB9C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036AB19E-C32E-4636-9C1C-567957AB9C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036AB19E-C32E-4636-9C1C-567957AB9C86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

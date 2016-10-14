@@ -1,0 +1,5 @@
+C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\bin\Debug\QuoteRepository.dll
+C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\bin\Debug\QuoteRepository.pdb
+C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.csprojResolveAssemblyReference.cache
+C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.dll
+C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.pdb
