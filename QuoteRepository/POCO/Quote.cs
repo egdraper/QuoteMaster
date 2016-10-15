@@ -26,6 +26,7 @@ namespace QuoteRepository.POCO
             public string Quote { get; set; }
             public string Url { get; set; }
             public bool Published { get; set; }
+            public int PublicationNumber { get; set; }
         
     }
 }

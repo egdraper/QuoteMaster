@@ -35,7 +35,11 @@ namespace QuoteMaster.Controllers
                         Quote = tq.Quote,
                         Type = tq.Type.ToString(),
                         Url = tq.Url,
+                        Published = tq.Published,
+                        PublicationNumber = tq.PublicationNumber
+                        
                     });
+
                 }
 
             }
@@ -60,6 +64,8 @@ namespace QuoteMaster.Controllers
                     Quote = tq.Quote,
                     Type = tq.Type.ToString(),
                     Url = tq.Url,
+                    Published = tq.Published,
+                    PublicationNumber = tq.PublicationNumber
                 };
             }
             return View(quote);
@@ -89,19 +95,22 @@ namespace QuoteMaster.Controllers
 
         // POST: Quote/Create
         [HttpPost]
-        public ActionResult Create(QuoteModel quote)
+        public ActionResult Create(QuoteModel model)
         {
             try
             {
                 var theQuote = new TheQuote()
                 {
-                    AuthorsFirstName = quote.AuthorsFirstName,
-                    AuthorsLastName = quote.AuthorsLastName,
-                    PublicationsName = quote.PublicationsName,
-                    Id = quote.Id,
-                    PublishedDate = quote.PublishedDate,
-                    Quote = quote.Quote,
-                    Url = quote.Url
+                    AuthorsFirstName = model.AuthorsFirstName,
+                    AuthorsLastName = model.AuthorsLastName,
+                    PublicationsName = model.PublicationsName,
+                    Id = model.Id,
+                    PublishedDate = model.PublishedDate,
+                    Quote = model.Quote,
+                    Url = model.Url,
+                    Published = model.Published,
+                    Type = (ReferenceType)Enum.Parse(typeof(ReferenceType), model.Type),
+                    PublicationNumber = model.PublicationNumber,
                 };
 
                 using (QuoteDB db = new QuoteDB(connectionString))
@@ -113,7 +122,8 @@ namespace QuoteMaster.Controllers
             }
             catch(Exception e)
             {
-                return View();
+                model.ReferenceList = getQuoteQulities();
+                return View(model);
             }
         }
 
@@ -136,8 +146,8 @@ namespace QuoteMaster.Controllers
                     Url = tq.Url,
                     Published = tq.Published,
                     Type = tq.Type.ToString(),
-                    ReferenceList = getQuoteQulities()
-                    
+                    PublicationNumber = tq.PublicationNumber,
+                    ReferenceList = getQuoteQulities(),
                 };
             }
 
@@ -146,19 +156,22 @@ namespace QuoteMaster.Controllers
 
         // POST: Quote/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, QuoteModel quote)
-        {
+        public ActionResult Edit(QuoteModel model)
+        {           
             try
             {
                 var theQuote = new TheQuote()
                 {
-                    AuthorsFirstName = quote.AuthorsFirstName,
-                    AuthorsLastName = quote.AuthorsLastName,
-                    PublicationsName = quote.PublicationsName,
-                    Id = quote.Id,
-                    PublishedDate = quote.PublishedDate,
-                    Quote = quote.Quote,
-                    Url = quote.Url
+                    AuthorsFirstName = model.AuthorsFirstName,
+                    AuthorsLastName = model.AuthorsLastName,
+                    PublicationsName = model.PublicationsName,
+                    Id = model.Id,
+                    PublishedDate = model.PublishedDate,
+                    Quote = model.Quote,
+                    Url = model.Url,
+                    Type = (ReferenceType)Enum.Parse(typeof(ReferenceType), model.Type),
+                    Published = model.Published,
+                    PublicationNumber = model.PublicationNumber
                 };
 
                 using (QuoteDB db = new QuoteDB(connectionString))
@@ -168,9 +181,10 @@ namespace QuoteMaster.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                model.ReferenceList = getQuoteQulities();
+                return View(model);
             }
         }
 
@@ -190,6 +204,9 @@ namespace QuoteMaster.Controllers
                     PublishedDate = tq.PublishedDate,
                     Quote = tq.Quote,
                     Url = tq.Url,
+                    Published = tq.Published,
+                    Type = tq.Type.ToString(),
+                    PublicationNumber = tq.PublicationNumber
                 };
             }
 
@@ -198,7 +215,7 @@ namespace QuoteMaster.Controllers
 
         // POST: Quote/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, QuoteModel quote)
+        public ActionResult Delete(int id, QuoteModel model)
         {
             try
             {

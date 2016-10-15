@@ -51,7 +51,8 @@ namespace QuoteTest
                 Quote = "This class was so amazing, I cried Every day I missed it",
                 Type = ReferenceType.Artical,
                 Url = "https://www.thebestwebsite.com/thecool/artical/isHere.html",
-                Published = true
+                Published = true,
+                PublicationNumber = 12345
             };
         }
 
@@ -72,7 +73,8 @@ namespace QuoteTest
                 Quote = "If there was a Cow for every farmer, then the world would be out of cows",
                 Type = ReferenceType.Book,
                 Url = "www.wearefarmersdadadadadadada.com",
-                Published = true
+                Published = true,
+                PublicationNumber = 12345
             };
                 db.InsertNewQuote(q);
                 Assert.IsTrue(q.Id > 0);
@@ -85,17 +87,19 @@ namespace QuoteTest
             string connectionString = ConfigurationManager.ConnectionStrings["QuoteTest.Properties.Settings.MyDBConnectionString"].ConnectionString;
             using (QuoteDB db = new QuoteDB(connectionString))
             {
-            TheQuote q = new TheQuote()
-            {
-                Id = -1,
-                AuthorsFirstName = "Farmer",
-                AuthorsLastName = "Joe",
-                PublicationsName = "How to Farm",
-                PublishedDate = DateTime.Now,
-                Quote = "If there was a Cow for every farmer, then the world would be out of cows",
-                Type = ReferenceType.Book,
-                Url = "www.wearefarmersdadadadadadada.com",
-                Published = true
+                TheQuote q = new TheQuote()
+                {
+                    Id = -1,
+                    AuthorsFirstName = "Farmer",
+                    AuthorsLastName = "Joe",
+                    PublicationsName = "How to Farm",
+                    PublishedDate = DateTime.Now,
+                    Quote = "If there was a Cow for every farmer, then the world would be out of cows",
+                    Type = ReferenceType.Book,
+                    Url = "www.wearefarmersdadadadadadada.com",
+                    Published = true,
+                    PublicationNumber = 123456
+                
 
             };
 
@@ -110,6 +114,7 @@ namespace QuoteTest
                 q.Type = ReferenceType.Book;
                 q.Url = "www.wearefarmersdadadadadadada.com1";
                 q.Published = true;
+                q.PublicationNumber = 123456;
 
                 db.UpdateQuote(q);
                 TheQuote q2 = db.GetSingleQuote(q.Id);
@@ -120,6 +125,7 @@ namespace QuoteTest
                 Assert.AreEqual(q.Type, q2.Type);
                 Assert.AreEqual(q.Url, q2.Url);
                 Assert.AreEqual(q.Published, q2.Published);
+                Assert.AreEqual(q.PublicationNumber, q2.PublicationNumber);
             }
         }
 
@@ -139,7 +145,8 @@ namespace QuoteTest
                     Quote = "If there was a Cow for every farmer, then the world would be out of cows",
                     Type = ReferenceType.Book,
                     Url = "www.wearefarmersdadadadadadada.com",
-                    Published = true
+                    Published = true,
+                    PublicationNumber = 1234
                 };
 
                 db.InsertNewQuote(q);

@@ -32,8 +32,12 @@ namespace QuoteMaster.Models
         [Display(Name = "Link to Quote")]
         public string Url { get; set; }
 
+        [UIHint("IsActive")]
         [Display(Name = "Published")]
         public bool Published { get; set; }
+
+        [Display(Name = "Publication Number")]
+        public int PublicationNumber { get; set; }
 
         public List<SelectListItem> ReferenceList { get; set; }
 
