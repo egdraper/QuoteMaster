@@ -3,8 +3,8 @@ C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteReposito
 C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.csprojResolveAssemblyReference.cache
 C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.dll
 C:\Users\edraper\documents\visual studio 2015\Projects\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.pdb
-C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteRepository\bin\Debug\QuoteRepository.dll
-C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteRepository\bin\Debug\QuoteRepository.pdb
-C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.csprojResolveAssemblyReference.cache
-C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.dll
-C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteRepository\obj\Debug\QuoteRepository.pdb
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteRepository\bin\Debug\QuoteRepository.dll
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteRepository\bin\Debug\QuoteRepository.pdb
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteRepository\obj\Debug\QuoteRepository.csprojResolveAssemblyReference.cache
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteRepository\obj\Debug\QuoteRepository.dll
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteRepository\obj\Debug\QuoteRepository.pdb
