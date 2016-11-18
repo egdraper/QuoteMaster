@@ -25,7 +25,7 @@ namespace QuoteRepository
         {
             var sql = @"SELECT
                          Id, AuthorsFirstName, AuthorsLastName, PublicationsName,
-                         Type, PublishedDate, Quote, Url, Published 
+                         Type, PublishedDate, Quote, Url, Published, PublicationNumber
                         FROM dbo.Quote";
 
             var quoteList = new List<TheQuote>();
@@ -45,7 +45,8 @@ namespace QuoteRepository
                             Quote = (string)reader["Quote"],
                             Url = (string)reader["Url"],
                             Type = (ReferenceType)Enum.Parse(typeof(ReferenceType), (string)reader["Type"]),
-                            Published = (bool)reader["Published"]
+                            Published = (bool)reader["Published"],
+                            PublicationNumber = (int)reader["PublicationNumber"]
 
                         };
 
@@ -61,7 +62,7 @@ namespace QuoteRepository
         {
             var sql = @"SELECT
                          ID, AuthorsFirstName, AuthorsLastName, PublicationsName,
-                         Type, PublishedDate, Quote, Url, Published
+                         Type, PublishedDate, Quote, Url, Published, PublicationNumber
                         FROM dbo.Quote 
                         WHERE Id = @id";
 
@@ -83,7 +84,8 @@ namespace QuoteRepository
                             Quote = (string)reader["Quote"],
                             Url = (string)reader["Url"],                          
                             Type = (ReferenceType)Enum.Parse(typeof(ReferenceType), (string)reader["Type"]),
-                            Published = (bool)reader["Published"]
+                            Published = (bool)reader["Published"],
+                            PublicationNumber = (int)reader["PublicationNumber"]
                         };
                     }
                 }
@@ -95,9 +97,9 @@ namespace QuoteRepository
         {
             var sql = @"INSERT INTO dbo.Quote
                          (AuthorsFirstName, AuthorsLastName, PublicationsName,
-                         Type, PublishedDate, Quote, Url, Published)
+                         Type, PublishedDate, Quote, Url, Published, PublicationNumber)
                         VALUES ( @authorsFirstName, @authorsLastName, @publicationsName,
-                         @type, @publishedDate, @quote, @url, @published)
+                         @type, @publishedDate, @quote, @url, @published, @publicationNumber)
 
                        SELECT Id = Scope_Identity()";
 
@@ -111,6 +113,7 @@ namespace QuoteRepository
                 cmd.Parameters.AddWithValue("@quote", quote.Quote);
                 cmd.Parameters.AddWithValue("@url", quote.Url);
                 cmd.Parameters.AddWithValue("@published", quote.Published);
+                cmd.Parameters.AddWithValue("@publicationNumber", quote.PublicationNumber);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
@@ -130,8 +133,10 @@ namespace QuoteRepository
                              Type = @type, 
                              PublishedDate = @publishedDate, 
                              Quote = @quote, 
-                             Url = @url 
-                             Published = @published
+                             Url = @url,
+                             Published = @published,
+                             PublicationNumber = @publicationNumber
+                             
                         WHERE Id = @id";
 
             using (SqlCommand cmd = new SqlCommand(sql, _conn))
@@ -145,6 +150,7 @@ namespace QuoteRepository
                 cmd.Parameters.AddWithValue("@url", quote.Url);
                 cmd.Parameters.AddWithValue("@id", quote.Id);
                 cmd.Parameters.AddWithValue("@published", quote.Published);
+                cmd.Parameters.AddWithValue("@publicationNumber", quote.PublicationNumber);
 
                 int rowCount = cmd.ExecuteNonQuery();
                 if (rowCount < 1)

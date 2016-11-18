@@ -35,17 +35,24 @@ namespace QuoteMaster.Controllers
                         Quote = tq.Quote,
                         Type = tq.Type.ToString(),
                         Url = tq.Url,
+                        Published = tq.Published,
+                        PublicationNumber = tq.PublicationNumber
+
                     });
                 }
-
             }
-
             return View(quotes);
         }
 
         // GET: Quote/Details/5
+        [ValidateInput(true)]
         public ActionResult Details(int id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
             QuoteModel quote;
             using (QuoteDB db = new QuoteDB(connectionString))
             {
@@ -60,6 +67,8 @@ namespace QuoteMaster.Controllers
                     Quote = tq.Quote,
                     Type = tq.Type.ToString(),
                     Url = tq.Url,
+                    Published = tq.Published,
+                    PublicationNumber = tq.PublicationNumber
                 };
             }
             return View(quote);
@@ -84,44 +93,50 @@ namespace QuoteMaster.Controllers
                 new SelectListItem() {Selected = false, Text = "Artical", Value = "Artical" },
                 new SelectListItem() {Selected = false, Text = "Web Post", Value = "WebPost" },
                 new SelectListItem() {Selected = false, Text = "Personal Quote", Value = "PersonalQuote" },
-            };                 
+            };
         }
 
         // POST: Quote/Create
         [HttpPost]
-        public ActionResult Create(QuoteModel quote)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(QuoteModel model)
         {
             try
             {
-                var theQuote = new TheQuote()
-                {
-                    AuthorsFirstName = quote.AuthorsFirstName,
-                    AuthorsLastName = quote.AuthorsLastName,
-                    PublicationsName = quote.PublicationsName,
-                    Id = quote.Id,
-                    PublishedDate = quote.PublishedDate,
-                    Quote = quote.Quote,
-                    Url = quote.Url
-                };
+                TheQuote theQuote = CheckModel(model);
 
-                using (QuoteDB db = new QuoteDB(connectionString))
+                if (!ModelState.IsValid)
                 {
-                    db.InsertNewQuote(theQuote);
+                    return View(model);
+                }
+                else
+                {
+                    using (QuoteDB db = new QuoteDB(connectionString))
+                    {
+                        db.InsertNewQuote(theQuote);
+                    }
+                    return RedirectToAction("Index");
                 }
 
-                return RedirectToAction("Index");
+               
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                return View();
+                model.ReferenceList = getQuoteQulities();
+                return View(model);
             }
         }
 
         // GET: Quote/Edit/5
         public ActionResult Edit(int id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
             QuoteModel quote;
-            
+
             using (QuoteDB db = new QuoteDB(connectionString))
             {
                 TheQuote tq = db.GetSingleQuote(id);
@@ -136,8 +151,8 @@ namespace QuoteMaster.Controllers
                     Url = tq.Url,
                     Published = tq.Published,
                     Type = tq.Type.ToString(),
-                    ReferenceList = getQuoteQulities()
-                    
+                    PublicationNumber = tq.PublicationNumber,
+                    ReferenceList = getQuoteQulities(),
                 };
             }
 
@@ -146,37 +161,41 @@ namespace QuoteMaster.Controllers
 
         // POST: Quote/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, QuoteModel quote)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(QuoteModel model)
         {
             try
             {
-                var theQuote = new TheQuote()
-                {
-                    AuthorsFirstName = quote.AuthorsFirstName,
-                    AuthorsLastName = quote.AuthorsLastName,
-                    PublicationsName = quote.PublicationsName,
-                    Id = quote.Id,
-                    PublishedDate = quote.PublishedDate,
-                    Quote = quote.Quote,
-                    Url = quote.Url
-                };
+               TheQuote theQuote = CheckModel(model);
 
-                using (QuoteDB db = new QuoteDB(connectionString))
+                if (!ModelState.IsValid)
                 {
-                    db.UpdateQuote(theQuote);
+                    return View(model);
                 }
-
-                return RedirectToAction("Index");
+                else
+                {
+                    using (QuoteDB db = new QuoteDB(connectionString))
+                    {
+                        db.UpdateQuote(theQuote);
+                    }
+                    return RedirectToAction("Index");
+                }               
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                model.ReferenceList = getQuoteQulities();
+                return View(model);
             }
         }
 
         // GET: Quote/Delete/5
         public ActionResult Delete(int id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
             QuoteModel quote;
             using (QuoteDB db = new QuoteDB(connectionString))
             {
@@ -190,16 +209,24 @@ namespace QuoteMaster.Controllers
                     PublishedDate = tq.PublishedDate,
                     Quote = tq.Quote,
                     Url = tq.Url,
+                    Published = tq.Published,
+                    Type = tq.Type.ToString(),
+                    PublicationNumber = tq.PublicationNumber
                 };
             }
 
-            return View(quote);    
+            return View(quote);
         }
 
         // POST: Quote/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, QuoteModel quote)
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, QuoteModel model)
         {
+            if (model.Id == null)
+            {
+                return View();
+            }
             try
             {
                 using (QuoteDB db = new QuoteDB(connectionString))
@@ -213,6 +240,69 @@ namespace QuoteMaster.Controllers
             {
                 return View();
             }
+        }
+
+        private TheQuote CheckModel(QuoteModel model)
+        {
+            var theQuote = new TheQuote();
+
+            theQuote.AuthorsFirstName = model.AuthorsFirstName;
+            if (string.IsNullOrEmpty(theQuote.AuthorsFirstName))
+                ModelState.AddModelError("AuthorsFirstName", "Authors first name is required");
+
+            theQuote.AuthorsLastName = model.AuthorsLastName;
+            if (string.IsNullOrEmpty(theQuote.AuthorsLastName))
+                ModelState.AddModelError("AuthorsLastName", "Authors last name is required");
+
+            theQuote.PublicationsName = model.PublicationsName;
+            if (string.IsNullOrEmpty(theQuote.PublicationsName))
+                ModelState.AddModelError("PublicationsName ", "Publication name is required");
+
+            theQuote.Id = model.Id;
+            if (theQuote.Id == null)
+                ModelState.AddModelError("Id", "An Id is required for submission");
+            if (theQuote.Id < 0)
+                ModelState.AddModelError("Id", "An Id must be greater then 0");
+
+            //date is not required (can be null).
+            theQuote.PublishedDate = model.PublishedDate;
+
+            theQuote.Quote = model.Quote;
+            if (string.IsNullOrEmpty(theQuote.Quote))
+                ModelState.AddModelError("Quote", "A quote is required");
+
+            theQuote.Url = model.Url;
+
+            if (model.Published == null)
+                ModelState.AddModelError("Quote", "There must be a publication given");
+            else
+                theQuote.Published = model.Published;
+
+            if (string.IsNullOrEmpty(model.Type))
+                ModelState.AddModelError("Type", "A type is required");
+            else
+            {
+                if (string.Compare(model.Type, "Book", true) == 0)
+                    theQuote.Type = ReferenceType.Book;
+                if (string.Compare(model.Type, "Artical", true) == 0)
+                    theQuote.Type = ReferenceType.Artical;
+                if (string.Compare(model.Type, "WebPost", true) == 0)
+                    theQuote.Type = ReferenceType.WebPost;
+                if (string.Compare(model.Type, "PersonalQuote", true) == 0)
+                    theQuote.Type = ReferenceType.PersonalQuote;
+            }
+
+            if (model.PublicationNumber == null)
+                ModelState.AddModelError("Type", "A type is required");
+            else
+                theQuote.PublicationNumber = model.PublicationNumber;
+
+            if(model.ReferenceList == null)
+            {
+                model.ReferenceList = new List<SelectListItem>();
+            }
+
+            return theQuote;
         }
     }
 }
