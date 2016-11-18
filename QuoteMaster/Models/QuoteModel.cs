@@ -31,11 +31,14 @@ namespace QuoteMaster.Models
         public DateTime PublishedDate { get; set; }
 
         [Required]
-        [StringLength(200, ErrorMessage = "The Quote value cannot exceed 200 characters. ")]
+        [StringLength(250, ErrorMessage = "The Quote value cannot exceed 200 characters. ")]
         [Display(Name = "Offical Quote")]
         public string Quote { get; set; }
         
         [Display(Name = "Link to Quote")]
+        [RegularExpression(@"^http(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$", 
+            ErrorMessage = "Must Use standard URL format Ex: http://www.something.com")]
+        [Required]
         public string Url { get; set; }
 
         [Required]
@@ -44,7 +47,7 @@ namespace QuoteMaster.Models
         public bool Published { get; set; }
          
         [Required]
-        [Range(0, 200000000, ErrorMessage = "Publication number must greater than 0")]
+        [Range(1, 200000000, ErrorMessage = "Publication number must be >= 1 or <= 200000000")]
         [Display(Name = "Publication Number")]
         public int PublicationNumber { get; set; }
 
