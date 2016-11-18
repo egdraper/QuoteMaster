@@ -174,3 +174,4 @@ C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaste
 C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteMaster\obj\Debug\QuoteMaster.csprojResolveAssemblyReference.cache
 C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteMaster\obj\Debug\QuoteMaster.dll
 C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteMaster\obj\Debug\QuoteMaster.pdb
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteMaster\obj\Debug\QuoteMaster.csprojResolveAssemblyReference.cache

@@ -18,3 +18,13 @@ C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaste
 C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.csprojResolveAssemblyReference.cache
 C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.dll
 C:\Users\edraper\Documents\Visual Studio 2015\Projects\TheQuoteMaster\QuoteMaster\QuoteTest\obj\Debug\QuoteTest.pdb
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\MyDB.mdf
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\QuoteTest.dll.config
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\QuoteTest.dll
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\QuoteTest.pdb
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\QuoteRepository.dll
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\bin\Debug\QuoteRepository.pdb
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\obj\Debug\QuoteTest.csprojResolveAssemblyReference.cache
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\obj\Debug\QuoteTest.dll
+C:\Users\Eric Draper\Documents\Visual Studio 2015\Projects\New folder (2)\QuoteTest\obj\Debug\QuoteTest.pdb
